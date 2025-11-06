@@ -183,10 +183,15 @@ class Boy:
             game_world.add_collision_pair('grass:ball', None, ball)
             game_world.add_collision_pair('boy:ball', None, ball)
 
+            for zombie in game_world.world[1]:
+                if zombie.__class__.__name__ == 'Zombie':
+                    game_world.add_collision_pair('zombie:ball', zombie, ball)
+
     def get_bb(self):
         return self.x - 50, self.y - 50, self.x + 50, self.y + 50
 
     def handle_collision(self, group, other):
         if group == 'boy:ball':
-            # 공을 잡으면 공 개수 증가
             self.ball_count += 1
+        elif group == 'boy:zombie':
+            game_framework.quit()
