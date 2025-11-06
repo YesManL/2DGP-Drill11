@@ -7,3 +7,5 @@ open_canvas(1600, 600)
 game_framework.run(start_mode)
 close_canvas()
 
+# Drill #11 - 2023182044 임호권
+
